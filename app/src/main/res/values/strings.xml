@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RandomStreet</string>
+    <string name="welcome_text">Chose a random street in the Loop!</string>
+    <string name="button_text">Choose</string>
+</resources>
