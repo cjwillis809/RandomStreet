@@ -1,8 +1,10 @@
 package com.cj.randomstreet;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,10 +43,26 @@ public class StreetHomeActivity extends AppCompatActivity implements StreetServi
                                 StreetHomeActivity.this, progressView);
                     }
                     streetService.getRandomStreet();
+                } else {
+                    showNoConnectionDialog();
                 }
-                // TODO: Handle no connection
             }
         });
+    }
+
+    private void showNoConnectionDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage(R.string.no_connection_error_message);
+        builder.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private boolean isNetworkAvailable(Context context) {

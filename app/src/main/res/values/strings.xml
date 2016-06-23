@@ -2,4 +2,6 @@
     <string name="app_name">RandomStreet</string>
     <string name="welcome_text">Chose a random street in the Loop!</string>
     <string name="button_text">Choose</string>
+    <string name="no_connection_error_message">No internet connection. Please connect to the internet and try again.</string>
+    <string name="ok">OK</string>
 </resources>
